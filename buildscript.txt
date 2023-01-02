@@ -1,2 +1,0 @@
-% jar cvfm ConsoleKit.jar META-INF/MANIFEST.MF *.class
-jar cvf ConsoleKit.jar ./build/classes/com/consolekit/*.class ./build/classes/com/consolekit/model/*.class

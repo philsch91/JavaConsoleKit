@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.consolekit;
+package com.schunker.java;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -67,35 +67,35 @@ public class SelectionMenu {
             this.setTitle("Select " + objectType + ":");
         }
         System.out.println("\n" + this.getTitle());
-        for(int i = 0;i < this.getTitle().length();i++){
+        for (int i = 0;i < this.getTitle().length();i++) {
             System.out.print("-");
         }
         System.out.println("\n");
         
         int j = 1;
-        for(Object o: this.options){
+        for (Object o: this.options) {
             System.out.println(Integer.toString(j) + ")\t" + o.toString());
             j++;
         }
         System.out.println("\n");
         BufferedReader inputBuffReader = new BufferedReader(new InputStreamReader(System.in));
-        while(true){
+        while (true) {
             String val = "\0";
             System.out.print("> ");
             
-            try{
+            try {
                 val = inputBuffReader.readLine();
-            }catch(IOException ioe){
+            } catch (IOException ioe) {
                 System.out.println("Failure: " + ioe.toString() + "\n"+
                         "Please restart the application with CTRL+C");
             }
-            if(val.length() > 0){
+            if (val.length() > 0) {
                 int inputNumber = Character.getNumericValue(val.charAt(0));
                 //if(inputNumber==-1 && Character.toLowerCase(val.charAt(0))=='q'){return 0;}
-                for(int k=0;k < this.options.size();k++){
-                    if((k+1) == inputNumber){
+                for (int k = 0; k < this.options.size(); k++) {
+                    if ((k + 1) == inputNumber) {
                         //return inputNumber;
-                        return this.options.get(inputNumber-1);
+                        return this.options.get(inputNumber - 1);
                     }
                 }
             }

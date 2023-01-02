@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.consolekit;
+package com.schunker.java;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -56,13 +56,13 @@ public class ListView {
     }
 
     public void setItems(List<Object> items) {
-        if(items.size() <= 1){
+        if (items.size() <= 1) {
             return;
         }
         
         String type = items.get(0).getClass().getSimpleName();
-        for(Object o : items){
-            if(!o.getClass().getSimpleName().equals(type)){
+        for (Object o : items) {
+            if (!o.getClass().getSimpleName().equals(type)) {
                 return;
             }
         }
@@ -71,9 +71,9 @@ public class ListView {
     }
     
     public void addItem(Object item){
-        if(this.items.size()>1){
+        if (this.items.size() > 1) {
             Class type = items.get(0).getClass();
-            if(item.getClass() != type){
+            if (item.getClass() != type) {
                 return;
             }
         }
@@ -82,7 +82,7 @@ public class ListView {
     
     public void show(){
         //Field[] fields = this.items.get(0).getClass().getDeclaredFields();
-        if(this.getTitle().equals("")){
+        if (this.getTitle().equals("")) {
             title = "";
             //String objectType = this.getItems().get(0).getClass().getSimpleName();
             //this.setTitle("Select " + objectType + ":");
@@ -92,39 +92,39 @@ public class ListView {
             }*/
         }
         System.out.println("\n" + this.getTitle());
-        for(int i = 0;i<this.getTitle().length();i++){
+        for (int i = 0;i<this.getTitle().length();i++) {
             System.out.print("-");
         }
         System.out.println("\n");
         
         int j = 1;
-        for(Object o: this.items){
+        for (Object o: this.items) {
             //System.out.println(Integer.toString(j)+")\t"+o.toString());
             Field[] fields = o.getClass().getDeclaredFields();
             //HashMap<String,String> objFields = mapObjectFieldsToHashMap(o);
-            for(Field f : fields){
+            for (Field f : fields) {
                 //f = o.getClass().getDeclaredField(fieldName);
                 f.setAccessible(true);
                 String fieldName = f.getName();
                 String value = null;
                 try {
-                    if(f.get(o) == null){
+                    if (f.get(o) == null) {
                         value = null;
-                    }else if(f.getType().isAssignableFrom(String.class)){
+                    } else if (f.getType().isAssignableFrom(String.class)) {
                         value = (String)f.get(o);
-                    }else if(f.getType().isAssignableFrom(Integer.class)){
+                    }else if (f.getType().isAssignableFrom(Integer.class)) {
                         Integer v = (Integer)f.get(o);
                         value = v.toString();
-                    }else if(f.getType().isAssignableFrom(Long.class)){
+                    }else if (f.getType().isAssignableFrom(Long.class)) {
                         Long v = (Long)f.get(o);
                         value = v.toString();
-                    }else if(f.getType().isAssignableFrom(Double.class)){
+                    }else if (f.getType().isAssignableFrom(Double.class)) {
                         Double v = f.getDouble(o);
                         value = v.toString();
-                    }else if(f.getType().isAssignableFrom(double.class)){
+                    }else if (f.getType().isAssignableFrom(double.class)) {
                         double v = f.getDouble(o);
                         value = Double.toString(v);
-                    }else if(f.getType().isAssignableFrom(int.class)){
+                    }else if (f.getType().isAssignableFrom(int.class)) {
                         int v = f.getInt(o);
                         value = Integer.toString(v);
                     }
@@ -137,7 +137,7 @@ public class ListView {
                 }                
                 
                 //System.out.println(Integer.toString(j)+")\t"+fieldName + ":" + value);
-                if(value != null){
+                if (value != null) {
                     fieldName = fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
                     System.out.println(fieldName + ": " + value);
                 }
@@ -155,30 +155,30 @@ public class ListView {
     private HashMap mapObjectFieldsToHashMap(Object o){
         HashMap<String,String> objectFields = new HashMap<String,String>();
         Field[] fields = o.getClass().getDeclaredFields();
-        for(Field f : fields){
+        for (Field f : fields) {
             //f = o.getClass().getDeclaredField(fieldName);
             f.setAccessible(true);
             String fieldName = f.getName();
             
             String value = null;
             try {
-                if(f.get(0) == null){
+                if (f.get(0) == null) {
                     value = null;
-                }else if(f.getType().isAssignableFrom(String.class)){
+                } else if(f.getType().isAssignableFrom(String.class)) {
                     value = (String)f.get(o);
-                }else if(f.getType().isAssignableFrom(Integer.class)){
+                } else if(f.getType().isAssignableFrom(Integer.class)) {
                     Integer v = (Integer)f.get(o);
                     value = v.toString();
-                }else if(f.getType().isAssignableFrom(Long.class)){
+                } else if(f.getType().isAssignableFrom(Long.class)) {
                     Long v = (Long)f.get(o);
                     value = v.toString();
-                }else if(f.getType().isAssignableFrom(Double.class)){
+                } else if(f.getType().isAssignableFrom(Double.class)) {
                     Double v = f.getDouble(o);
                     value = v.toString();
-                }else if(f.getType().isAssignableFrom(double.class)){
+                } else if(f.getType().isAssignableFrom(double.class)) {
                     double v = f.getDouble(o);
                     value = Double.toString(v);
-                }else if(f.getType().isAssignableFrom(int.class)){
+                } else if(f.getType().isAssignableFrom(int.class)) {
                     int v = f.getInt(o);
                     value = Integer.toString(v);
                 }

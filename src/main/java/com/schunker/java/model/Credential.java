@@ -21,12 +21,42 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.consolekit;
+package com.schunker.java.model;
 
 /**
  *
  * @author Philipp Schunker
  */
-public enum TextBoxInputType {
-    TEXT, NUMBER
+public class Credential {
+    
+    private String username = null;
+    private String password = null;
+    
+    /**
+     * @return the username
+     */
+    public String getUsername() {
+        return username;
+    }
+
+    /**
+     * @param username the username to set
+     */
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    /**
+     * @return the password
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * @param password the password to set
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.consolekit;
+package com.schunker.java;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -29,8 +29,7 @@ import java.io.InputStreamReader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.consolekit.model.Credential;
-
+import com.schunker.java.model.Credential;
 
 /**
  *
@@ -38,31 +37,31 @@ import com.consolekit.model.Credential;
  */
 public class LoginForm {
     
-    public Credential show(){
+    public Credential show() {
         BufferedReader inputBuffReader = new BufferedReader(new InputStreamReader(System.in));
         String username = "\0";
         
         System.out.print("Username: ");
-        try{
+        try {
             username = inputBuffReader.readLine();
-        }catch(IOException ioe){
+        } catch(IOException ioe) {
             System.out.println("Failure: " + ioe.toString() + "\n" + "Please restart the application with CTRL+C");
         }
         
-        if(!this.validateLoginInput(username)){
+        if (!this.validateLoginInput(username)) {
             return null;
         }
         
         String password = "\0";
         
         System.out.print("Password: ");
-        try{
+        try {
             password = inputBuffReader.readLine();
-        }catch(IOException ioe){
+        } catch(IOException ioe) {
             System.out.println("Failure: " + ioe.toString() + "\n" + "Please restart the application with CTRL+C");
         }
         
-        if(!this.validateLoginInput(password)){
+        if (!this.validateLoginInput(password)) {
             return null;
         }
         
@@ -73,26 +72,26 @@ public class LoginForm {
         return cred;
     }
     
-    private String readInput(String inputName){
+    private String readInput(String inputName) {
         BufferedReader inputBuffReader = new BufferedReader(new InputStreamReader(System.in));
         String val = "\0";
-        while(true){
+        while (true) {
             System.out.println(inputName + ": ");
-            try{
+            try {
                 val = inputBuffReader.readLine();
-            }catch(IOException ioe){
+            } catch(IOException ioe) {
                 System.out.println("Failure: " + ioe.toString() + "\n" + "Please restart the application with CTRL+C");
             }
-            if(this.validateLoginInput(val)){
+            if (this.validateLoginInput(val)) {
                return val; 
             }
             System.out.println("invalid input");
         }
     }
     
-    private boolean validateLoginInput(String input){
+    private boolean validateLoginInput(String input) {
         input = input.trim();
-        if(input.length() == 0){
+        if (input.length() == 0) {
             return false;
         }
         Pattern pattern = Pattern.compile("\\s");

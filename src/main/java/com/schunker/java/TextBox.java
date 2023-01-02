@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.consolekit;
+package com.schunker.java;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -49,11 +49,11 @@ public class TextBox {
         System.out.print(this.title + ": ");
         String input = "";
         input = this.readLine();
-        if(this.type == TextBoxInputType.NUMBER){
-            try{
+        if (this.type == TextBoxInputType.NUMBER) {
+            try {
                 int i = Integer.parseInt(input);
                 input = Integer.toString(i);
-            }catch(NumberFormatException ne){
+            } catch (NumberFormatException ne) {
                 System.out.println("Input must be a number");
                 input = this.show();
             }
@@ -64,9 +64,9 @@ public class TextBox {
     private String readLine(){
         String value = "\0";
         BufferedReader breader = new BufferedReader(new InputStreamReader(System.in));
-        try{
+        try {
             value = breader.readLine();
-        }catch(IOException e){
+        } catch (IOException e) {
             System.out.println(e.getMessage());
             return "";
         }
