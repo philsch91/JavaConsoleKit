@@ -21,6 +21,18 @@ mvn test
 mvn [--settings settings.xml] clean package
 ```
 
+## Install
+```
+// Install JAR into local Maven repository
+mvn install:install-file \
+    -Dfile=./target/JavaConsoleKit-1.0-SNAPSHOT.jar \
+    -DgroupId=com.schunker.java \
+    -DartifactId=JavaConsoleKit \
+    -Dversion=1.0-SNAPSHOT \
+    -Dpackaging=jar \
+    -DgeneratePom=true
+```
+
 ## Build
 ```
 jar cvf JavaConsoleKit.jar ./build/classes/com/schunker/java/*.class ./build/classes/com/schunker/java/model/*.class
