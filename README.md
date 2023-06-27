@@ -19,6 +19,8 @@ mvn test
 ## Package
 ```
 mvn [--settings settings.xml] clean package
+// List contents for packaged .jar file
+jar tvf target/JavaConsoleKit-1.0-SNAPSHOT.jar
 ```
 
 ## Install
