@@ -19,13 +19,14 @@ mvn test
 ## Package
 ```
 mvn [--settings settings.xml] clean package
-// List contents for packaged .jar file
+# List contents for packaged .jar file
 jar tvf target/JavaConsoleKit-1.0-SNAPSHOT.jar
+cp -rv target/JavaConsoleKit-1.0-SNAPSHOT.jar dist/
 ```
 
 ## Install
 ```
-// Install JAR into local Maven repository
+# Install JAR into local Maven repository
 mvn install:install-file \
     -Dfile=./target/JavaConsoleKit-1.0-SNAPSHOT.jar \
     -DgroupId=com.schunker.java \
@@ -37,5 +38,7 @@ mvn install:install-file \
 
 ## Build
 ```
+jar cvf JavaConsoleKit.jar ./target/classes/com/schunker/java/*.class ./target/classes/com/schunker/java/model/*.class
 jar cvf JavaConsoleKit.jar ./build/classes/com/schunker/java/*.class ./build/classes/com/schunker/java/model/*.class
+mv -v JavaConsoleKit.jar dist/
 ```
